@@ -25,7 +25,7 @@ extern "C" {
 #include <stdint.h>     // uint32_t
 #include <stdbool.h>    // bool for tryCommitTransaction
 #ifndef __AVX__
-#    include "alt-license/avxintrin_emu.h"
+#    include "../alt-license/avxintrin_emu.h"
 #else
 #    include <immintrin.h>  // sse-specific type __m256, __m128, __m64
 #endif

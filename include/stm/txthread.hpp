@@ -19,7 +19,7 @@
 #ifndef TXTHREAD_HPP__
 #define TXTHREAD_HPP__
 
-#include "alt-license/rand_r_32.h"
+#include "../alt-license/rand_r_32.h"
 #include "common/locks.hpp"
 #include "common/ThreadLocal.hpp"
 #include "stm/metadata.hpp"

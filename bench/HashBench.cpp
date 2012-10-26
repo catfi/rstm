@@ -18,7 +18,7 @@
  *    Include the configuration code for the harness, and the API code.
  */
 #include <iostream>
-#include <alt-license/rand_r_32.h>
+#include "../include/alt-license/rand_r_32.h"
 #include <api/api.hpp>
 #include "bmconfig.hpp"
 

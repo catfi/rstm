@@ -19,7 +19,7 @@
  */
 #include <iostream>
 #include <vector>
-#include <alt-license/rand_r_32.h>
+#include "../include/alt-license/rand_r_32.h"
 #include <api/api.hpp>
 #include "bmconfig.hpp"
 

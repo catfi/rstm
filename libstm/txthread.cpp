@@ -173,6 +173,12 @@ namespace stm
   NORETURN void (*TxThread::tmabort)(TxThread*) = default_abort_handler;
   bool (*TxThread::tmirrevoc)(STM_IRREVOC_SIG(,)) = NULL;
 
+  /***  Set up a thread's transactional context */
+  void thread_init() { TxThread::thread_init(); }
+
+  /***  Shut down a thread's transactional context */
+  void thread_shutdown() { TxThread::thread_shutdown(); }
+
   /*** the init factory */
   void TxThread::thread_init()
   {
@@ -249,6 +255,71 @@ namespace stm
       }
       CFENCE;
       mtx = 0;
+  }
+
+  /**
+   *  Code to start a transaction.  We assume the caller already performed a
+   *  setjmp, and is passing a valid setjmp buffer to this function.
+   *
+   *  The code to begin a transaction *could* all live on the far side of a
+   *  function pointer.  By putting some of the code into this inlined
+   *  function, we can:
+   *
+   *    (a) avoid overhead under subsumption nesting and
+   *    (b) avoid code duplication or MACRO nastiness
+   */
+  void begin(TxThread* tx, scope_t* s, uint32_t /*abort_flags*/)
+  {
+      if (++tx->nesting_depth > 1)
+          return;
+
+      // we must ensure that the write of the transaction's scope occurs
+      // *before* the read of the begin function pointer.  On modern x86, a
+      // CAS is faster than using WBR or xchg to achieve the ordering.  On
+      // SPARC, WBR is best.
+#ifdef STM_CPU_SPARC
+      tx->scope = s; WBR;
+#else
+      // NB: this CAS fails on a transaction restart... is that too expensive?
+      casptr((volatile uintptr_t*)&tx->scope, (uintptr_t)0, (uintptr_t)s);
+#endif
+
+      // some adaptivity mechanisms need to know nontransactional and
+      // transactional time.  This code suffices, because it gets the time
+      // between transactions.  If we need the time for a single transaction,
+      // we can run ProfileTM
+      if (tx->end_txn_time)
+          tx->total_nontxn_time += (tick() - tx->end_txn_time);
+
+      // now call the per-algorithm begin function
+      TxThread::tmbegin(tx);
+  }
+
+  /**
+   *  Code to commit a transaction.  As in begin(), we are using forced
+   *  inlining to save a little bit of overhead for subsumption nesting, and to
+   *  prevent code duplication.
+   */
+  void commit(TxThread* tx)
+  {
+      // don't commit anything if we're nested... just exit this scope
+      if (--tx->nesting_depth)
+          return;
+
+      // dispatch to the appropriate end function
+#ifdef STM_PROTECT_STACK
+      void* top_of_stack;
+      tx->tmcommit(tx, &top_of_stack);
+#else
+      tx->tmcommit(tx);
+#endif
+
+      // zero scope (to indicate "not in tx")
+      CFENCE;
+      tx->scope = NULL;
+
+      // record start of nontransactional time
+      tx->end_txn_time = tick();
   }
 
   /**

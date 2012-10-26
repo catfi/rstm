@@ -13,6 +13,8 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   append_property(SOURCE algs/bytelazy.cpp COMPILE_FLAGS -fno-strict-aliasing)
 endif ()
 
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated -fPIC")
+
 set(sources
   txthread.cpp
   inst.cpp

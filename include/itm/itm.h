@@ -16,7 +16,7 @@
 #ifndef RSTM_ITM_ITM_H
 #define RSTM_ITM_ITM_H
 
-#include <common/platform.hpp>
+#include "../common/platform.hpp"
 
 #ifdef __cplusplus
 extern "C" {

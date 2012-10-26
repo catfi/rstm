@@ -20,8 +20,8 @@
     using std::cerr;
 #include <cassert>
 
-#include "common/platform.hpp"
-#include "common/ThreadLocal.hpp"
+#include "../include/common/platform.hpp"
+#include "../include/common/ThreadLocal.hpp"
 #include "lock.hpp"  // pthread locks
 
 #ifdef __APPLE__

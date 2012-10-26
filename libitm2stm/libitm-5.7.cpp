@@ -10,9 +10,9 @@
 
 #include "libitm.h"
 #include "Transaction.h"
-#include "common/platform.hpp"
-#include "stm/txthread.hpp"
-#include "stm/lib_globals.hpp"
+#include "../include/common/platform.hpp"
+#include "../include/stm/txthread.hpp"
+#include "../include/stm/lib_globals.hpp"
 using namespace stm;
 using namespace itm2stm;
 
@@ -114,7 +114,7 @@ _ITM_transaction::NewNode() {
 /// This section of the file is only used to generate a template for the
 /// _ITM_beginTransaction.S file.
 #ifdef FAKE_ITM_BEGIN_TRANSACTION
-#include <common/platform.hpp> // REGPARM
+#include "../include/common/platform.hpp" // REGPARM
 
 /// This doesn't really exist (it's always_inline), it gets inlined into
 /// _FAKE_beginTransaction, which serves as the model for our manual

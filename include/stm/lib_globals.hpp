@@ -17,8 +17,8 @@
  *  application code.
  */
 
-#include <stm/config.h>
-#include <stm/metadata.hpp>
+#include "config.h"
+#include "metadata.hpp"
 
 namespace stm
 {

@@ -70,3 +70,8 @@ foreach (arch ${rstm_archs})
     target_link_libraries(stm${arch} -lmtmalloc)
   endif ()
 endforeach ()
+
+foreach (arch ${rstm_archs})
+    install(TARGETS stm${arch}
+            DESTINATION lib)
+endforeach ()

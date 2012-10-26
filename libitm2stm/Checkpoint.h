@@ -11,7 +11,7 @@
 #ifndef STM_ITM2STM_CHECKPOINT_H
 #define STM_ITM2STM_CHECKPOINT_H
 
-#include <stm/config.h> // NORETURN
+#include "../include/stm/config.h" // NORETURN
 #include <checkpoint.h> // CHECKPOINT_SIZE
 
 namespace itm2stm {

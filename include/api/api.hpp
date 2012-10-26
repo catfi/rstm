@@ -19,14 +19,14 @@
 #ifndef STM_API_HPP__
 #define STM_API_HPP__
 
-#include <stm/config.h>
+#include "../stm/config.h"
 
 #if defined(STM_API_CXXTM)
-#  include <api/cxxtm.hpp>
+#  include "cxxtm.hpp"
 #elif defined(STM_API_STAMP)
-#  include <api/stamp.hpp>
+#  include "stamp.hpp"
 #else // default
-#  include <api/library.hpp>
+#  include "library.hpp"
 #endif
 
 #endif // STM_API_HPP__

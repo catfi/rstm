@@ -11,7 +11,7 @@
 #ifndef STM_REDO_RAW_CHECK_HPP
 #define STM_REDO_RAW_CHECK_HPP
 
-#include <stm/config.h>
+#include "../include/stm/config.h"
 
 /**
  *  Redo-log TMs all need to perform a read-after-write check in their read_rw

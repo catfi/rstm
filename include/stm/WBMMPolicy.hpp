@@ -25,9 +25,9 @@
 #define WBMMPOLICY_HPP__
 
 #include <stdlib.h>
-#include <stm/config.h>
-#include "stm/MiniVector.hpp"
-#include "stm/metadata.hpp"
+#include "config.h"
+#include "MiniVector.hpp"
+#include "metadata.hpp"
 
 namespace stm
 {

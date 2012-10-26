@@ -111,3 +111,15 @@ if (CMAKE_USE_PTHREADS_INIT)
 else ()
   message (STATUS "Pthreads not found, will not build pthread apps.")
 endif ()
+
+install(DIRECTORY include/
+  DESTINATION include/rstm
+  FILES_MATCHING
+  PATTERN "*"
+  PATTERN "CMakeLists.txt" EXCLUDE
+  )
+
+#install(FILES ${CMAKE_BINARY_DIR}/include/stm/config.h
+#  DESTINATION include/rstm/stm
+#  )
+

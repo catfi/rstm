@@ -26,7 +26,7 @@
 #ifndef STM_COMMON_THREAD_LOCAL_H
 #define STM_COMMON_THREAD_LOCAL_H
 
-#include <stm/config.h>
+#include "../stm/config.h"
 
 /**
  *  We define the following interface for interacting with thread local data.

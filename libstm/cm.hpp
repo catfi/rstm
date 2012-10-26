@@ -11,9 +11,9 @@
 #ifndef CM_HPP__
 #define CM_HPP__
 
-#include <stm/config.h>
+#include "../include/stm/config.h"
 #include <limits.h>
-#include "stm/txthread.hpp"
+#include "../include/stm/txthread.hpp"
 #include "algs/algs.hpp"     // for exp_backoff
 
 /**

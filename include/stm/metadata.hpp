@@ -17,9 +17,9 @@
 #ifndef METADATA_HPP__
 #define METADATA_HPP__
 
-#include <stm/config.h>
-#include "stm/MiniVector.hpp"
-#include "stm/BitFilter.hpp"
+#include "config.h"
+#include "MiniVector.hpp"
+#include "BitFilter.hpp"
 
 namespace stm
 {

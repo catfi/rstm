@@ -11,7 +11,7 @@
 #ifndef BMCONFIG_HPP__
 #define BMCONFIG_HPP__
 
-#include <stm/config.h>
+#include "../include/stm/config.h"
 #include <stdint.h>
 #include <iostream>
 

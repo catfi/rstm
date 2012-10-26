@@ -58,7 +58,7 @@ namespace stm
 }
 
 #if defined(ITM) || defined(ITM2STM)
-#include <common/platform.hpp> // nop()
+#include "../common/platform.hpp" // nop()
 
 #define  TM_SYS_INIT                   _ITM_initializeProcess
 #define  TM_THREAD_INIT                _ITM_initializeThread

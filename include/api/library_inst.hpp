@@ -11,7 +11,7 @@
 #ifndef API_LIBRARY_INST_HPP__
 #define API_LIBRARY_INST_HPP__
 
-#include <stm/config.h>
+#include "../stm/config.h"
 
 /**
  *  In the LIBRARY api, the transformation of reads and writes of addresses

@@ -11,7 +11,7 @@
 #ifndef POLICIES_HPP__
 #define POLICIES_HPP__
 
-#include <stm/config.h>
+#include "../../include/stm/config.h"
 #ifdef STM_CC_SUN
 #include <stdio.h>
 #else
@@ -19,10 +19,10 @@
 #endif
 
 #include <inttypes.h>
-#include <common/platform.hpp>
-#include <stm/metadata.hpp>
-#include <stm/txthread.hpp>
-#include <stm/lib_globals.hpp>
+#include "../../include/common/platform.hpp"
+#include "../../include/stm/metadata.hpp"
+#include "../../include/stm/txthread.hpp"
+#include "../../include/stm/lib_globals.hpp"
 
 namespace stm
 {

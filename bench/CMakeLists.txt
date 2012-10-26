@@ -67,7 +67,10 @@ if (CMAKE_CXX-tm_COMPILER)
   # We're going to be copying source files into the build directory, and trying
   # to compile them. We need to make sure that their relative addressing for
   # includes still works.
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+  include_directories(
+      ${CMAKE_CURRENT_SOURCE_DIR}
+      ${CMAKE_CURRENT_BINARY_DIR}
+    )
 
   # We need to use the _ITM_initialize/finalize macros, which are defined in
   # itm.h

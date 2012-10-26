@@ -8,7 +8,7 @@
  *          Please see the file LICENSE.RSTM for licensing information
  */
 
-#include <stm/config.h>
+#include "../include/stm/config.h"
 
 #if defined(STM_CPU_SPARC)
 #include <sys/types.h>

@@ -8,10 +8,10 @@
  *          Please see the file LICENSE.RSTM for licensing information
  */
 
-#include "common/platform.hpp"   // NORETURN, FASTCALL, etc
-#include "stm/lib_globals.hpp"   // AbortHandler
-#include "stm/macros.hpp"        // barrier signatures
-#include "stm/txthread.hpp"      // TxThread stuff
+#include "../include/common/platform.hpp"   // NORETURN, FASTCALL, etc
+#include "../include/stm/lib_globals.hpp"   // AbortHandler
+#include "../include/stm/macros.hpp"        // barrier signatures
+#include "../include/stm/txthread.hpp"      // TxThread stuff
 #include "policies/policies.hpp" // curr_policy
 #include "algs/algs.hpp"         // stms
 #include "algs/tml_inline.hpp"

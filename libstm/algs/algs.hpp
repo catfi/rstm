@@ -16,15 +16,15 @@
 #ifndef ALGS_HPP__
 #define ALGS_HPP__
 
-#include <stm/config.h>
+#include "../../include/stm/config.h"
 #ifdef STM_CC_SUN
 #include <stdio.h>
 #else
 #include <cstdio>
 #endif
 
-#include "stm/metadata.hpp"
-#include "stm/txthread.hpp"
+#include "../../include/stm/metadata.hpp"
+#include "../../include/stm/txthread.hpp"
 #include "../profiling.hpp" // Trigger::
 
 namespace stm

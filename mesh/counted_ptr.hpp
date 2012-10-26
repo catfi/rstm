@@ -11,7 +11,7 @@
 #ifndef COUNTED_PTR_HPP__
 #define COUNTED_PTR_HPP__
 
-#include "common/platform.hpp"
+#include "../include/common/platform.hpp"
 
 //  Counted pointers incorporate a serial number to avoid the A-B-A problem
 //  in shared data structures.  They are needed for algorithms based on

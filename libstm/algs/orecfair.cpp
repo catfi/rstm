@@ -108,7 +108,7 @@ namespace
 
           // clear metadata, reset list
           foreach (RRecList, i, tx->myRRecs)
-              (*i)->unsetbit(tx->id-1);
+              (*i)->unset_bit(tx->id-1);
           tx->myRRecs.reset();
       }
       tx->r_orecs.reset();
@@ -210,7 +210,7 @@ namespace
 
           // clear metadata, reset list
           foreach (RRecList, j, tx->myRRecs)
-              (*j)->unsetbit(tx->id-1);
+              (*j)->unset_bit(tx->id-1);
           tx->myRRecs.reset();
       }
 
@@ -242,7 +242,7 @@ namespace
       if (tx->prio > 0) {
           // get the rrec for this address, set the bit, log it
           rrec_t* rrec = get_rrec(addr);
-          rrec->setbit(tx->id-1);
+          rrec->set_bit(tx->id-1);
           tx->myRRecs.insert(rrec);
       }
 
@@ -302,7 +302,7 @@ namespace
       if (tx->prio > 0) {
           // get the rrec for this address, set the bit, log it
           rrec_t* rrec = get_rrec(addr);
-          rrec->setbit(tx->id-1);
+          rrec->set_bit(tx->id-1);
           tx->myRRecs.insert(rrec);
       }
 
@@ -360,7 +360,7 @@ namespace
       if (tx->prio > 0) {
           // get the rrec for this address, set the bit, log it
           rrec_t* rrec = get_rrec(addr);
-          rrec->setbit(tx->id-1);
+          rrec->set_bit(tx->id-1);
           tx->myRRecs.insert(rrec);
       }
 
@@ -402,7 +402,7 @@ namespace
       if (tx->prio > 0) {
           // get the rrec for this address, set the bit, log it
           rrec_t* rrec = get_rrec(addr);
-          rrec->setbit(tx->id-1);
+          rrec->set_bit(tx->id-1);
           tx->myRRecs.insert(rrec);
       }
 
@@ -460,7 +460,7 @@ namespace
           faaptr(&prioTxCount.val, -1);
           tx->prio = 0;
           foreach (RRecList, i, tx->myRRecs)
-              (*i)->unsetbit(tx->id-1);
+              (*i)->unset_bit(tx->id-1);
           tx->myRRecs.reset();
       }
 

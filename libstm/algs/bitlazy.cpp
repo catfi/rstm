@@ -87,7 +87,7 @@ namespace {
 
       // release read locks
       foreach (BitLockList, i, tx->r_bitlocks)
-          (*i)->readers.unsetbit(tx->id-1);
+          (*i)->readers.unset_bit(tx->id-1);
 
       tx->r_bitlocks.reset();
       OnReadOnlyCommit(tx);
@@ -160,7 +160,7 @@ namespace {
       foreach (BitLockList, i, tx->w_bitlocks)
           (*i)->owner = 0;
       foreach (BitLockList, i, tx->r_bitlocks)
-          (*i)->readers.unsetbit(tx->id-1);
+          (*i)->readers.unset_bit(tx->id-1);
 
       // remember that this was a commit
       tx->r_bitlocks.reset();
@@ -280,7 +280,7 @@ namespace {
       foreach (BitLockList, i, tx->w_bitlocks)
           (*i)->owner = 0;
       foreach (BitLockList, i, tx->r_bitlocks)
-          (*i)->readers.unsetbit(tx->id-1);
+          (*i)->readers.unset_bit(tx->id-1);
 
       tx->r_bitlocks.reset();
       tx->writes.reset();

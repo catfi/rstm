@@ -67,7 +67,7 @@ namespace stm
    *    (a) avoid overhead under subsumption nesting and
    *    (b) avoid code duplication or MACRO nastiness
    */
-  inline void begin(TxThread* tx, scope_t* s, uint32_t /*abort_flags*/);
+  void begin(TxThread* tx, scope_t* s, uint32_t /*abort_flags*/);
 
   /**
    *  Code to commit a transaction.  As in begin(), we are using forced

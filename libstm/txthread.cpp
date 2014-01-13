@@ -421,8 +421,6 @@ namespace stm
           const char* configstring = getenv("STM_CONFIG");
           if (configstring)
               cfg = configstring;
-          else
-              printf("STM_CONFIG environment variable not found... using %s\n", cfg);
           init_lib_name = cfg;
 
           // now initialize the the adaptive policies
@@ -443,8 +441,6 @@ namespace stm
 
           // now set the phase
           set_policy(cfg);
-
-          printf("STM library configured using config == %s\n", cfg);
 
           mtx = 2;
       }
